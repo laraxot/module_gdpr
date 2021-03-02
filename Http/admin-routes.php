@@ -2,7 +2,7 @@
 /**
 *
 */
-
+/*
 Route::group(['middleware' => ['web']], function () {
     Route::prefix('admin/gdpr')->group(function () {
         Route::group(['middleware' => ['admin']], function () {
@@ -35,3 +35,4 @@ Route::group(['middleware' => ['web']], function () {
         });
     });
 });
+*/
