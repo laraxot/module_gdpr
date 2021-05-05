@@ -1,4 +1,7 @@
 <?php
+/**
+ * da bagisto.
+ */
 
 namespace Modules\GDPR\Providers;
 
