@@ -2,9 +2,13 @@
 
 namespace Modules\GDPR\Providers;
 
-class RepositoryServiceProvider {
+use Konekt\Concord\BaseModuleServiceProvider;
+
+class RepositoryServiceProvider extends BaseModuleServiceProvider
+{
     protected $models = [
         \Modules\GDPR\Models\GDPR::class,
         \Modules\GDPR\Models\GDPRDataRequest::class,
+        
     ];
 }
