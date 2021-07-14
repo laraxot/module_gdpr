@@ -5,6 +5,14 @@ namespace Modules\GDPR\Models;
 use Illuminate\Database\Eloquent\Model;
 use Modules\GDPR\Contracts\GDPR as GDPRContract;
 
+/**
+ * Modules\GDPR\Models\GDPR
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|GDPR newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GDPR newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GDPR query()
+ * @mixin \Eloquent
+ */
 class GDPR extends Model implements GDPRContract
 {
     protected $table = 'gdpr';
