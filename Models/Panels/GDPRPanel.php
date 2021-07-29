@@ -61,7 +61,7 @@ class GDPRPanel extends XotBasePanel {
     /**
      * index navigation.
      */
-    public function indexNav() {
+    public function indexNav(): ?array {
         return [];
     }
 
@@ -78,7 +78,7 @@ class GDPRPanel extends XotBasePanel {
         return $query;
     }
 
-    
+
 
     /**
      * Get the fields displayed by the resource.
@@ -92,67 +92,67 @@ class GDPRPanel extends XotBasePanel {
      */
     public function fields(): array {
         return array (
-  0 => 
+  0 =>
   (object) array(
      'type' => 'Text',
      'name' => 'gdpr_status',
      'comment' => 'not in Doctrine',
   ),
-  1 => 
+  1 =>
   (object) array(
      'type' => 'Text',
      'name' => 'customer_agreement_status',
      'comment' => 'not in Doctrine',
   ),
-  2 => 
+  2 =>
   (object) array(
      'type' => 'Text',
      'name' => 'agreement_label',
      'comment' => 'not in Doctrine',
   ),
-  3 => 
+  3 =>
   (object) array(
      'type' => 'Text',
      'name' => 'agreement_content',
      'comment' => 'not in Doctrine',
   ),
-  4 => 
+  4 =>
   (object) array(
      'type' => 'Text',
      'name' => 'cookie_status',
      'comment' => 'not in Doctrine',
   ),
-  5 => 
+  5 =>
   (object) array(
      'type' => 'Text',
      'name' => 'cookie_block_position',
      'comment' => 'not in Doctrine',
   ),
-  6 => 
+  6 =>
   (object) array(
      'type' => 'Text',
      'name' => 'cookie_static_block_identifier',
      'comment' => 'not in Doctrine',
   ),
-  7 => 
+  7 =>
   (object) array(
      'type' => 'Text',
      'name' => 'data_update_request_template',
      'comment' => 'not in Doctrine',
   ),
-  8 => 
+  8 =>
   (object) array(
      'type' => 'Text',
      'name' => 'data_delete_request_template',
      'comment' => 'not in Doctrine',
   ),
-  9 => 
+  9 =>
   (object) array(
      'type' => 'Text',
      'name' => 'request_status_update_template',
      'comment' => 'not in Doctrine',
   ),
-  10 => 
+  10 =>
   (object) array(
      'type' => 'Text',
      'name' => 'request_status_delete_template',
