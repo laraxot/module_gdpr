@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\Models\Panels;
 
 use Illuminate\Http\Request;
@@ -10,15 +12,11 @@ use Modules\Xot\Models\Panels\XotBasePanel;
 class GDPRPanel extends XotBasePanel {
     /**
      * The model the resource corresponds to.
-     *
-     * @var string
      */
     public static string $model = 'Modules\GDPR\Models\GDPR';
 
     /**
      * The single value that should be used to represent the resource when being displayed.
-     *
-     * @var string
      */
     public static string $title = 'title';
 
@@ -27,20 +25,19 @@ class GDPRPanel extends XotBasePanel {
      *
      * @var array
      */
-    public static $search = array (
-);
+    public static $search = [
+    ];
 
     /**
      * The relationships that should be eager loaded on index queries.
      *
      * @var array
      */
-    public function with():array {
+    public function with(): array {
         return [];
     }
 
-    public function search() :array {
-
+    public function search(): array {
         return [];
     }
 
@@ -54,7 +51,7 @@ class GDPRPanel extends XotBasePanel {
     /**
      * on select the option label.
      */
-    public function optionLabel(object $row):string {
+    public function optionLabel(object $row): string {
         return $row->area_define_name;
     }
 
@@ -78,87 +75,68 @@ class GDPRPanel extends XotBasePanel {
         return $query;
     }
 
-
-
     /**
      * Get the fields displayed by the resource.
-     *
-     * @return array
-        'col_bs_size' => 6,
-        'sortable' => 1,
-        'rules' => 'required',
-        'rules_messages' => ['it'=>['required'=>'Nome Obbligatorio']],
         'value'=>'..',
      */
     public function fields(): array {
-        return array (
-  0 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'gdpr_status',
-     'comment' => 'not in Doctrine',
-  ),
-  1 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'customer_agreement_status',
-     'comment' => 'not in Doctrine',
-  ),
-  2 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'agreement_label',
-     'comment' => 'not in Doctrine',
-  ),
-  3 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'agreement_content',
-     'comment' => 'not in Doctrine',
-  ),
-  4 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'cookie_status',
-     'comment' => 'not in Doctrine',
-  ),
-  5 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'cookie_block_position',
-     'comment' => 'not in Doctrine',
-  ),
-  6 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'cookie_static_block_identifier',
-     'comment' => 'not in Doctrine',
-  ),
-  7 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'data_update_request_template',
-     'comment' => 'not in Doctrine',
-  ),
-  8 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'data_delete_request_template',
-     'comment' => 'not in Doctrine',
-  ),
-  9 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'request_status_update_template',
-     'comment' => 'not in Doctrine',
-  ),
-  10 =>
-  (object) array(
-     'type' => 'Text',
-     'name' => 'request_status_delete_template',
-     'comment' => 'not in Doctrine',
-  ),
-);
+        return [
+            0 => (object) [
+                'type' => 'Text',
+                'name' => 'gdpr_status',
+                'comment' => 'not in Doctrine',
+            ],
+            1 => (object) [
+                'type' => 'Text',
+                'name' => 'customer_agreement_status',
+                'comment' => 'not in Doctrine',
+            ],
+            2 => (object) [
+                'type' => 'Text',
+                'name' => 'agreement_label',
+                'comment' => 'not in Doctrine',
+            ],
+            3 => (object) [
+                'type' => 'Text',
+                'name' => 'agreement_content',
+                'comment' => 'not in Doctrine',
+            ],
+            4 => (object) [
+                'type' => 'Text',
+                'name' => 'cookie_status',
+                'comment' => 'not in Doctrine',
+            ],
+            5 => (object) [
+                'type' => 'Text',
+                'name' => 'cookie_block_position',
+                'comment' => 'not in Doctrine',
+            ],
+            6 => (object) [
+                'type' => 'Text',
+                'name' => 'cookie_static_block_identifier',
+                'comment' => 'not in Doctrine',
+            ],
+            7 => (object) [
+                'type' => 'Text',
+                'name' => 'data_update_request_template',
+                'comment' => 'not in Doctrine',
+            ],
+            8 => (object) [
+                'type' => 'Text',
+                'name' => 'data_delete_request_template',
+                'comment' => 'not in Doctrine',
+            ],
+            9 => (object) [
+                'type' => 'Text',
+                'name' => 'request_status_update_template',
+                'comment' => 'not in Doctrine',
+            ],
+            10 => (object) [
+                'type' => 'Text',
+                'name' => 'request_status_delete_template',
+                'comment' => 'not in Doctrine',
+            ],
+        ];
     }
 
     /**

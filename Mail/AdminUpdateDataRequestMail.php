@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class AdminUpdateDataRequestMail extends Mailable
-{
-    use Queueable, SerializesModels;
+class AdminUpdateDataRequestMail extends Mailable {
+    use Queueable;
+    use SerializesModels;
 
     public $dataUpdateRequest;
 
@@ -22,8 +23,7 @@ class AdminUpdateDataRequestMail extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->to($this->dataUpdateRequest['email'])
             ->subject('New Update of Data Request')
             ->view('gdpr::emails.customers.new-data-update-request')->with($this->dataUpdateRequest);

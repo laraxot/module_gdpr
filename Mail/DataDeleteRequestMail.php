@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class DataDeleteRequestMail extends Mailable
-{
-    use Queueable, SerializesModels;
+class DataDeleteRequestMail extends Mailable {
+    use Queueable;
+    use SerializesModels;
 
     public $dataDeleteRequest;
 
@@ -22,8 +23,7 @@ class DataDeleteRequestMail extends Mailable
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build() {
         return $this->to('akhtark20@gmail.com')
             ->subject('New Request For Data Delete')
             ->view('gdpr::emails.customers.new-data-delete-request')->with($this->dataDeleteRequest);

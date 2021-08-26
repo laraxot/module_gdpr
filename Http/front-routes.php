@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
     Route::prefix('customer/account/gdpr')->group(function () {
         Route::namespace('Modules\GDPR\Http\Controllers\Customer')->group(function () {

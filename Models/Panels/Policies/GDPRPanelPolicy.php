@@ -1,9 +1,8 @@
 <?php
-namespace Modules\GDPR\Models\Panels\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\LU\Models\User as User;
-use Modules\GDPR\Models\Panels\Policies\GDPRPanelPolicy as Panel;
+declare(strict_types=1);
+
+namespace Modules\GDPR\Models\Panels\Policies;
 
 use Modules\Xot\Models\Panels\Policies\XotBasePanelPolicy;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\Models\Panels;
 
 use Modules\Xot\Models\Panels\XotBasePanel;

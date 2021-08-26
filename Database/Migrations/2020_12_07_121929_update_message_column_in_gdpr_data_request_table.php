@@ -1,20 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateMessageColumnInGdprDataRequestTable extends Migration
-{
+class UpdateMessageColumnInGdprDataRequestTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::table('gdpr_data_request', function (Blueprint $table) {
-            $table->string('message',500)->change();
+            $table->string('message', 500)->change();
         });
     }
 
@@ -23,10 +23,8 @@ class UpdateMessageColumnInGdprDataRequestTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::table('gdpr_data_request', function (Blueprint $table) {
-            //
         });
     }
 }

@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\DataGrids\Admin;
 
 use DB;
 use Modules\Ui\DataGrid\DataGrid;
 
-class GDPRDataRequest extends DataGrid
-{
+class GDPRDataRequest extends DataGrid {
     /**
-     * @var integer
+     * @var int
      */
     protected $index = 'id';
     protected $sortOrder = 'desc'; //asc or desc
@@ -18,21 +19,17 @@ class GDPRDataRequest extends DataGrid
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->invoker = $this;
     }
 
-    public function prepareQueryBuilder()
-    {
-        $customerId = NULL;
+    public function prepareQueryBuilder() {
+        $customerId = null;
 
         if (auth()->guard('customer')->user()) {
-          
             $customerId = auth()->guard('customer')->user()->id;
         }
 
-       
         $queryBuilder = DB::table('gdpr_data_request as gdpr')
                                  ->addSelect('gdpr.id',
                                              'gdpr.customer_id',
@@ -41,28 +38,26 @@ class GDPRDataRequest extends DataGrid
                                              'gdpr.message',
                                              'gdpr.created_at',
                                              'gdpr.updated_at');
-               $this->setQueryBuilder($queryBuilder);
+        $this->setQueryBuilder($queryBuilder);
     }
 
-
-    public function addColumns()
-    {
+    public function addColumns() {
         $this->addColumn([
-            'index' =>  'id',
+            'index' => 'id',
             'label' => trans('gdpr::app.shop.customer-index-field.id'),
             'type' => 'number',
             'searchable' => true,
             'sortable' => true,
-            'filterable' => true
+            'filterable' => true,
         ]);
 
         $this->addColumn([
-            'index' =>  'customer_id',
+            'index' => 'customer_id',
             'label' => trans('gdpr::app.shop.customer-index-field.customer_id'),
             'type' => 'number',
             'searchable' => true,
             'sortable' => true,
-            'filterable' => true
+            'filterable' => true,
         ]);
 
         $this->addColumn([
@@ -72,7 +67,6 @@ class GDPRDataRequest extends DataGrid
             'searchable' => true,
             'sortable' => false,
             'filterable' => false,
-         
         ]);
 
         $this->addColumn([
@@ -82,7 +76,6 @@ class GDPRDataRequest extends DataGrid
             'sortable' => false,
             'searchable' => true,
             'filterable' => false,
-           
         ]);
 
         $this->addColumn([
@@ -92,7 +85,6 @@ class GDPRDataRequest extends DataGrid
             'sortable' => false,
             'searchable' => true,
             'filterable' => false,
-           
         ]);
 
         $this->addColumn([
@@ -101,7 +93,7 @@ class GDPRDataRequest extends DataGrid
             'type' => 'datetime',
             'sortable' => true,
             'searchable' => false,
-            'filterable' => true
+            'filterable' => true,
         ]);
 
         $this->addColumn([
@@ -110,31 +102,30 @@ class GDPRDataRequest extends DataGrid
             'type' => 'datetime',
             'sortable' => true,
             'searchable' => false,
-            'filterable' => true
+            'filterable' => true,
         ]);
     }
 
-    public function prepareActions()
-    {
+    public function prepareActions() {
         $routeName = request()->route()->getName();
 
-        if ($routeName == 'admin.gdpr.dataRequest' && auth()->guard('admin')->user()) {
+        if ('admin.gdpr.dataRequest' == $routeName && auth()->guard('admin')->user()) {
             $route_for_edit = 'admin.gdpr.edit';
             $route_for_delete = 'admin.gdpr.delete';
         }
 
         $this->addAction([
             'method' => 'GET',
-            'route'  => 'admin.gdpr.edit',
-            'icon'   => 'icon pencil-lg-icon',
-            'title'  => trans('gdpr::app.admin.data-request.edit-data-request'),
+            'route' => 'admin.gdpr.edit',
+            'icon' => 'icon pencil-lg-icon',
+            'title' => trans('gdpr::app.admin.data-request.edit-data-request'),
         ]);
 
         $this->addAction([
             'method' => 'GET',
-            'route'  => 'admin.gdpr.delete',
-            'icon'   => 'icon trash-icon',
-            'title'  => trans('gdpr::app.admin.data-request.delete-data-request'),
+            'route' => 'admin.gdpr.delete',
+            'icon' => 'icon trash-icon',
+            'title' => trans('gdpr::app.admin.data-request.delete-data-request'),
         ]);
     }
 }

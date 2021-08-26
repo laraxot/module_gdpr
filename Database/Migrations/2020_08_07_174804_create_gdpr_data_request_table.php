@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGdprDataRequestTable extends Migration
-{
+class CreateGdprDataRequestTable extends Migration {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::create('gdpr_data_request', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
@@ -30,8 +30,7 @@ class CreateGdprDataRequestTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::dropIfExists('gdpr_data_request');
     }
 }

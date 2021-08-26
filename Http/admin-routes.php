@@ -1,7 +1,7 @@
 <?php
-/**
-*
-*/
+
+declare(strict_types=1);
+
 /*
 Route::group(['middleware' => ['web']], function () {
     Route::prefix('admin/gdpr')->group(function () {

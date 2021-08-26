@@ -83,9 +83,9 @@
                         foreach ($gdpr as $value) {
                             $gdprData = $value;
                         }
-                try{
-                    if($gdprData && $gdprData->customer_agreement_status == 1){
-            ?>
+                try {
+                    if ($gdprData && 1 == $gdprData->customer_agreement_status) {
+                        ?>
             
             <div class="control-group" :class="[errors.has('agreement') ? 'has-error' : '']">
 
@@ -116,8 +116,9 @@
             </div>
                     
             <?php
+                    }
+                } catch (\Exception $e) {
                 }
-            }catch(\Exception $e){}
             ?>
                 
             <button class="btn btn-primary btn-lg" type="submit">

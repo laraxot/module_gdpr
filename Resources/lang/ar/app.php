@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'shop' => [
         'customer' => [
             'menu-name' => 'طلب البيانات',
             'title' => 'طلب البيانات',
         ],
-        
+
         'customer-gdpr-data-request' => [
             'heading' => 'طلب بيانات العميل',
             'request-data-access' => 'طلب الوصول إلى البيانات',
@@ -34,12 +36,11 @@ return [
             'status' => 'الحالة',
             'message' => 'رسالة',
             'created-at' => 'تاريخ الإنشاء',
-            'updated-at' => 'تاريخ التحديث'
+            'updated-at' => 'تاريخ التحديث',
         ],
-
     ],
 
     'general' => [
-        'create' => 'خلق'
-    ]
+        'create' => 'خلق',
+    ],
 ];

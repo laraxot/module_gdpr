@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     [
         'key' => 'settings.gdpr',
         'name' => 'gdpr::app.admin.layouts.gdpr',
         'route' => 'admin.gdpr.index',
-        'sort' => 9
+        'sort' => 9,
     ],
     [
         'key' => 'settings.gdpr.index',
@@ -15,12 +17,11 @@ return [
         'icon-class' => '',
     ],
 
-
     [
         'key' => 'customers.gdpr',
         'name' => 'gdpr::app.admin.layouts.gdpr-data-request',
         'route' => 'admin.gdpr.dataRequest',
-        'sort' => 6
+        'sort' => 6,
     ],
     [
         'key' => 'customers.gdpr.index',
@@ -28,7 +29,5 @@ return [
         'route' => 'admin.gdpr.dataRequest',
         'sort' => 1,
         'icon-class' => '',
-    ]
-   
-    
+    ],
 ];

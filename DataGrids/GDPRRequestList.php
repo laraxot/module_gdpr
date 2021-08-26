@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\DataGrids;
 
 use DB;
 use Modules\Ui\DataGrid\DataGrid;
 
-class GDPRRequestList extends DataGrid
-{
+class GDPRRequestList extends DataGrid {
     /**
-     * @var integer
+     * @var int
      */
     protected $index = 'id';
     protected $sortOrder = 'desc'; //asc or desc
@@ -18,21 +19,17 @@ class GDPRRequestList extends DataGrid
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->invoker = $this;
     }
 
-    public function prepareQueryBuilder()
-    {
-        $customerId = NULL;
+    public function prepareQueryBuilder() {
+        $customerId = null;
 
         if (auth()->guard('customer')->user()) {
-          
             $customerId = auth()->guard('customer')->user()->id;
         }
 
-       
         $queryBuilder = DB::table('gdpr_data_request as gdpr')
                                  ->addSelect('gdpr.id',
                                              'gdpr.request_status',
@@ -41,19 +38,17 @@ class GDPRRequestList extends DataGrid
                                              'gdpr.created_at',
                                              'gdpr.updated_at'
         )->where('gdpr.customer_id', $customerId);
-               $this->setQueryBuilder($queryBuilder);
+        $this->setQueryBuilder($queryBuilder);
     }
 
-
-    public function addColumns()
-    {
+    public function addColumns() {
         $this->addColumn([
-            'index' =>  'id',
+            'index' => 'id',
             'label' => trans('gdpr::app.shop.customer-index-field.id'),
             'type' => 'number',
             'searchable' => true,
             'sortable' => true,
-            'filterable' => true
+            'filterable' => true,
         ]);
 
         $this->addColumn([
@@ -63,7 +58,6 @@ class GDPRRequestList extends DataGrid
             'searchable' => true,
             'sortable' => false,
             'filterable' => false,
-         
         ]);
 
         $this->addColumn([
@@ -73,7 +67,6 @@ class GDPRRequestList extends DataGrid
             'sortable' => false,
             'searchable' => true,
             'filterable' => false,
-           
         ]);
 
         $this->addColumn([
@@ -83,7 +76,6 @@ class GDPRRequestList extends DataGrid
             'sortable' => false,
             'searchable' => true,
             'filterable' => false,
-           
         ]);
 
         $this->addColumn([
@@ -92,7 +84,7 @@ class GDPRRequestList extends DataGrid
             'type' => 'datetime',
             'sortable' => true,
             'searchable' => false,
-            'filterable' => true
+            'filterable' => true,
         ]);
 
         $this->addColumn([
@@ -101,7 +93,7 @@ class GDPRRequestList extends DataGrid
             'type' => 'datetime',
             'sortable' => true,
             'searchable' => false,
-            'filterable' => true
+            'filterable' => true,
         ]);
     }
 }

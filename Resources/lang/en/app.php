@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'shop' => [
         'customer' => [
             'menu-name' => 'Data Request',
             'title' => 'Data Request',
         ],
-        
+
         'customer-gdpr-data-request' => [
             'heading' => 'Customer Data Request',
             'request-data-access' => 'Request Data Access',
@@ -34,9 +36,8 @@ return [
             'status' => 'Status',
             'message' => 'Message',
             'created-at' => 'Created Date',
-            'updated-at' => 'Updated Date'
+            'updated-at' => 'Updated Date',
         ],
-
     ],
 
     'mail' => [
@@ -68,7 +69,7 @@ return [
             'heading' => 'Hello :name',
             'quotes' => 'Your RMA status has been changed by Seller',
             'rma-id' => 'RMA Id',
-            'your-rma-id' => ':id status has been changed by Seller'
+            'your-rma-id' => ':id status has been changed by Seller',
         ],
     ],
 
@@ -78,15 +79,15 @@ return [
             'gdpr-data-request' => 'GDPR Data Request',
         ],
         'tabs' => [
-            'gdpr' => 'GDPR'
+            'gdpr' => 'GDPR',
         ],
         'title' => [
             'index' => 'GDPR',
             'data-request' => 'GDPR Data Request',
             'edit' => 'Edit Data Request',
-            'edit-heading' => 'Edit Data Request'
+            'edit-heading' => 'Edit Data Request',
         ],
-        
+
         'create-gdpr' => [
             'general' => 'General Settings',
             'general-data-request' => 'General',
@@ -109,7 +110,7 @@ return [
             'save-btn' => 'Save',
             'status' => 'Status',
         ],
-       
+
         'admin-name' => [
             'gdpr' => 'GDPR',
         ],
@@ -117,12 +118,12 @@ return [
         'gdpr-tab' => [
             'heading' => 'GDPR',
             'data-request-heading' => 'GDPR Data Request',
-            'customer-name' => 'Customer Name'
+            'customer-name' => 'Customer Name',
         ],
 
         'data-request' => [
-                'edit-data-request' => 'Edit Data Request',
-                'delete-data-request' => 'Delete Data Request'
+            'edit-data-request' => 'Edit Data Request',
+            'delete-data-request' => 'Delete Data Request',
         ],
     ],
 
@@ -147,6 +148,6 @@ return [
     ],
 
     'general' => [
-        'create' => 'Create'
-    ]
+        'create' => 'Create',
+    ],
 ];

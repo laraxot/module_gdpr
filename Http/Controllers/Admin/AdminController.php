@@ -1,38 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\GDPR\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Mail;
 use Modules\GDPR\Http\Controllers\Controller;
-use Modules\GDPR\Repositories\GDPRRepository;
 use Modules\GDPR\Mail\AdminUpdateDataRequestMail;
 use Modules\GDPR\Repositories\GDPRDataRequestRepository;
-use DB;
+use Modules\GDPR\Repositories\GDPRRepository;
 
-class AdminController extends Controller
-{
-
-     /**
-     * GDPRRepository object
+class AdminController extends Controller {
+    /**
+     * GDPRRepository object.
      *
      * @var object
      */
     protected $gdprRepository;
 
-
     /**
-    * GDPRDataRequestRepository object
-    *
-    * @var object
-    */
+     * GDPRDataRequestRepository object.
+     *
+     * @var object
+     */
     protected $gdprDataRequestRepository;
 
     protected $_config;
 
-
-
-    public function __construct(GDPRRepository $gdprRepository, GDPRDataRequestRepository $gdprDataRequestRepository)
-    {
+    public function __construct(GDPRRepository $gdprRepository, GDPRDataRequestRepository $gdprDataRequestRepository) {
         $this->isGuest = 1;
         /*
         if (auth()->guard('customer')->user()) {
@@ -46,8 +41,7 @@ class AdminController extends Controller
         $this->gdprDataRequestRepository = $gdprDataRequestRepository;
     }
 
-    public function index()
-    {
+    public function index() {
         $data = $this->gdprRepository->get();
 
         return view($this->_config['view'], [
@@ -55,31 +49,30 @@ class AdminController extends Controller
         ]);
     }
 
-    public function store($id)
-    {
-        if (request()->get('enabled_gdpr') == 'on') {
+    public function store($id) {
+        if ('on' == request()->get('enabled_gdpr')) {
             $gdprStatus = 1;
         } else {
             $gdprStatus = 0;
         }
 
-        if (request()->get('customer_agreement') == 'on') {
+        if ('on' == request()->get('customer_agreement')) {
             $customerAgreementStatus = 1;
         } else {
             $customerAgreementStatus = 0;
         }
 
-        if (request()->get('enabled_cookie_notice') == 'on') {
+        if ('on' == request()->get('enabled_cookie_notice')) {
             $cookieStatus = 1;
         } else {
             $cookieStatus = 0;
         }
 
         $params = request()->all() + [
-                'gdpr_status'=>$gdprStatus,
-                'customer_agreement_status'=>$customerAgreementStatus,
-                'cookie_status'=>$cookieStatus
-            ];
+            'gdpr_status' => $gdprStatus,
+            'customer_agreement_status' => $customerAgreementStatus,
+            'cookie_status' => $cookieStatus,
+        ];
 
         $gdprData = $this->gdprRepository->findOneWhere([
             'id' => $id,
@@ -87,39 +80,35 @@ class AdminController extends Controller
 
         $params['agreement_content'] = str_replace('=&gt;', '=>', $params['agreement_content']);
 
-        unset($params['enabled_gdpr']);
-        unset($params['customer_agreement']);
-        unset($params['enabled_cookie_notice']);
+        unset($params['enabled_gdpr'], $params['customer_agreement'], $params['enabled_cookie_notice']);
 
         $data = $this->gdprRepository->update($params, $id);
 
         session()->flash('success', trans('gdpr::app.admin.create-gdpr.update-success'));
+
         return redirect()->route($this->_config['redirect']);
     }
 
-    public function customerDataRequest()
-    {
+    public function customerDataRequest() {
         return view($this->_config['view']);
     }
 
-    public function edit($id)
-    {
+    public function edit($id) {
         $data = $this->gdprDataRequestRepository->find($id);
 
         return view($this->_config['view'], compact('data'));
     }
 
-    public function update()
-    {
+    public function update() {
         $data = request()->except('_token');
         $customer = auth()->guard('customer')->user();
 
         $result = $this->gdprDataRequestRepository->find($data['id'])->update($data);
 
         $params = $data + [
-                'customer_id'=>$customer->id,
-                'email'=>$customer->email,
-            ];
+            'customer_id' => $customer->id,
+            'email' => $customer->email,
+        ];
 
         if ($result) {
             try {
@@ -134,8 +123,7 @@ class AdminController extends Controller
         return redirect()->route($this->_config['redirect']);
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         try {
             $this->gdprDataRequestRepository->delete($id);
 
