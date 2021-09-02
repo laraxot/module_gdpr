@@ -144,7 +144,7 @@ class GDPRPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function tabs() {
+    public function tabs():array {
         $tabs_name = [];
 
         return $tabs_name;
