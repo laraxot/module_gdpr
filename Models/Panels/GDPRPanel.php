@@ -65,10 +65,7 @@ class GDPRPanel extends XotBasePanel {
     /**
      * Build an "index" query for the given resource.
      *
-     * @param Request                               $request
-     * @param \Illuminate\Database\Eloquent\Builder $query
      *
-     * @return \Illuminate\Database\Eloquent\Builder
      */
     public static function indexQuery(array $data,\Illuminate\Database\Eloquent\Builder $query):\Illuminate\Database\Eloquent\Builder {
         //return $query->where('auth_user_id', $request->user()->auth_user_id);
@@ -182,7 +179,7 @@ class GDPRPanel extends XotBasePanel {
      *
      * @return array
      */
-    public function actions() {
+    public function actions():array {
         return [];
     }
 }
