@@ -1,22 +1,14 @@
-const mix = require("laravel-mix");
-require("laravel-mix-merge-manifest");
+const dotenvExpand = require('dotenv-expand');
+dotenvExpand(require('dotenv').config({ path: '../../.env'/*, debug: true*/}));
+
+const mix = require('laravel-mix');
+require('laravel-mix-merge-manifest');
+
+mix.setPublicPath('../../public').mergeManifest();
+
+mix.js(__dirname + '/Resources/assets/js/app.js', 'js/gdpr.js')
+    .sass( __dirname + '/Resources/assets/sass/app.scss', 'css/gdpr.css');
 
 if (mix.inProduction()) {
-  var publicPath = "publishable/assets";
-} else {
-  var publicPath = "../../../public/vendor/webkul/gdpr/assets";
-}
-
-mix.setPublicPath(publicPath).mergeManifest();
-
-mix.disableNotifications();
-
-mix
-  .sass(__dirname + "/src/Resources/assets/sass/app.scss", "css/gdpr.css")
-  .options({
-    processCssUrls: false
-  });
-
-if (mix.inProduction()) {
-  mix.version();
+    mix.version();
 }

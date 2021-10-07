@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +12,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::prefix('gdpr')->group(function() {
-    Route::get('/', 'GdprController@index');
+/*
+Route::prefix('forum')->group(function() {
+    Route::get('/', 'ForumController@index');
 });
+*/

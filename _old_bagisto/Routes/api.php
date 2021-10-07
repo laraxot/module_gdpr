@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Http\Request;
 
 /*
@@ -12,7 +14,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/gdpr', function (Request $request) {
+/*
+Route::middleware('auth:api')->get('/forum', function (Request $request) {
     return $request->user();
 });
+*/
