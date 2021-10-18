@@ -5,7 +5,7 @@
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\Gdpr\\Providers\\GdprServiceProvider"
+        "Modules\\Gdpr\\Providers\\GDPRServiceProvider"
     ],
     "aliases": {},
     "files": [],
