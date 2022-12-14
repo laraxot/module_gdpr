@@ -1,4 +1,7 @@
 {
+    "name":"laraxot/module_gdpr",
+    "description": "gdpr",
+    "license": "mit",
     "require": {
         "tightenco/jigsaw": "^1.6",
         "tightenco/jigsaw-docs-template": "^1.1",
