@@ -6,7 +6,8 @@ namespace Modules\Gdpr\Providers;
 
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
 
-class RouteServiceProvider extends XotBaseRouteServiceProvider {
+class RouteServiceProvider extends XotBaseRouteServiceProvider
+{
     protected string $moduleNamespace = 'Modules\Gdpr\Http\Controllers';
 
     protected string $module_dir = __DIR__;
