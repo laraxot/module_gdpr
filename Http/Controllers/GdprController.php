@@ -8,15 +8,13 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class GdprController extends Controller
-{
+class GdprController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return Renderable
      */
-    public function index()
-    {
+    public function index() {
         /**
          * @phpstan-var view-string
          */
@@ -33,8 +31,7 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function create()
-    {
+    public function create() {
         /**
          * @phpstan-var view-string
          */
@@ -51,8 +48,16 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'job::store';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 
     /**
@@ -62,8 +67,7 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function show($id)
-    {
+    public function show($id) {
         /**
          * @phpstan-var view-string
          */
@@ -82,8 +86,7 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         /**
          * @phpstan-var view-string
          */
@@ -102,8 +105,16 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'job::update';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 
     /**
@@ -113,7 +124,15 @@ class GdprController extends Controller
      *
      * @return Renderable
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
+        /**
+         * @phpstan-var view-string
+         */
+        $view = 'job::destroy';
+        $view_params = [
+            'view' => $view,
+        ];
+
+        return view($view, $view_params);
     }
 }
