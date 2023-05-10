@@ -13,5 +13,6 @@ node_modules
 .php-cs-fixer.cache
 *.cache
 *.lock
+package-lock.json
 vendor/
 node_modules/
