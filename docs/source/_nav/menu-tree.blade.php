@@ -2,9 +2,6 @@
 
 <ul class="my-0">
     @foreach ($items as $label => $item)
-
         @include('_nav.menu-item-tree',['item'=>$item])
-
-
     @endforeach
 </ul>
