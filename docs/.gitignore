@@ -4,7 +4,12 @@
 /source/assets/build/
 .env
 npm-debug.log
+<<<<<<< HEAD
 *.cache
 *.phar
 *.lock
 package-lock.json
+=======
+*.lock
+
+>>>>>>> dad75b7 (.)
