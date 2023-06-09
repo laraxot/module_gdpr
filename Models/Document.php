@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Gdpr\Models;
 
+/**
+ * Modules\Gdpr\Models\Document.
+ *
+ * @property string $logo_src
+ */
 class Document extends BaseModel
 {
     /**
