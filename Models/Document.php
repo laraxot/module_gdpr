@@ -7,6 +7,7 @@ namespace Modules\Gdpr\Models;
 /**
  * Modules\Gdpr\Models\Document.
  *
+ * @property string $body_html
  * @property string $logo_src
  */
 class Document extends BaseModel
