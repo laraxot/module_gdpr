@@ -48,7 +48,7 @@ class DocumentPanel extends XotBasePanel
      * quando aggiungi un campo select, è il numero della chiave
      * che viene messo come valore su value="id"
      *
-     * @param \Modules\Gdpr\Models\Document $row
+     * @param Modules\Gdpr\Models\Document $row
      *
      * @return int|string|null
      */
@@ -65,7 +65,7 @@ class DocumentPanel extends XotBasePanel
     /**
      * on select the option label.
      *
-     * @param \Modules\Gdpr\Models\Document $row
+     * @param Modules\Gdpr\Models\Document $row
      */
     public function optionLabel($row): string
     {
