@@ -1,0 +1,19 @@
+includes:
+    - phpstan-baseline.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - .
+
+    excludePaths:
+        - ./vendor/*
+        - ./*/vendor/*
+        - ./docs/*
+        - ./Tests/*
+
+    reportUnmatchedIgnoredErrors: false
+    checkOctaneCompatibility: false
+    checkModelProperties: false
+    checkMissingIterableValueType: false
